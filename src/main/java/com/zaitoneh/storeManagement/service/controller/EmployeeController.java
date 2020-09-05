@@ -35,7 +35,14 @@ public class EmployeeController {
   public String listEmployees(Model model) {
       //  model.addAttribute("listEmployees", employeeService.getAllEmployees());
       //  return "list_employees";
+    	
+    
+    	        model.addAttribute("listEmployees", employeeService.getAllEmployees());
+    	   
     	 return findPaginated(1, "firstName", "asc", model);
+    	 
+    	 
+    	 
     	 //  return findPaginated(1, model);
     }
         

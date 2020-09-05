@@ -17,7 +17,7 @@ import org.springframework.data.domain.Sort;
 import com.zaitoneh.storeManagement.repository.StoreRepository;
 
 @Service
-public class StoreServiceImpl implements StoreService {
+public class StoreServiceImp implements StoreService {
 
     @Autowired
     private StoreRepository StoreRepository;
