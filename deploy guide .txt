@@ -5,3 +5,5 @@ https://murmuring-forest-07493.herokuapp.com/ | https://git.heroku.com/murmuring
 
  deploy guide 
 https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku#preparing-a-spring-boot-app-for-heroku
+
+git push heroku master

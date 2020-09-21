@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,19 +34,32 @@ public class ItemControllerREST {
    	 return itemService.getAllItems() ;
     
     }
-    @PostMapping("/newItem")
-    public void   saveItemNet(@RequestBody Item item) {
-  
-    	  // save item to database
-      //  itemService.saveItem(item);
+    //http://localhost:8080/ItemId?ItemId=56
+    @GetMapping("/ItemId")
+    public  Item getItemById(@RequestParam  Long ItemId)  {
+
+    	return itemService.getItemById(ItemId);    
        
-   	
-    int  a=1;
+       }
+    
+    @PostMapping("/newItem")
+    
+    public void    saveItemNet(@RequestBody Item item) {
+    	 try {
+    	  // save item to database
+       itemService.saveItem(item);
+     }
+   catch (Exception e) { 
+      e.printStackTrace();
+  }
+    	 
+    	 
+    
+    
+   
     }
     
-  
-    
-    
+
 
     
 
