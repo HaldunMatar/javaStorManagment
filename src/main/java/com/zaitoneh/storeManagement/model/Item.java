@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "item_table")
 
@@ -14,8 +16,9 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(defaultValue = "0")
     private long itemId;
-    
+    @JsonProperty(defaultValue = "0")
     @Column(name = "item_name")
     private String itemMain;
 
@@ -58,13 +61,13 @@ public class Item {
 	public void setItemLevel3(String itemLevel3) {
 		this.itemLevel3 = itemLevel3;
 	}
-
+	 @JsonProperty(defaultValue = "0")
 	@Column(name = "item_type_level1")
     private String itemLevel1;
-
+	 @JsonProperty(defaultValue = "0")
     @Column(name = "item_type_level2")
     private String itemLevel2;
-
+	 @JsonProperty(defaultValue = "0")
     @Column(name = "item_type_level3")
     private String itemLevel3;
     

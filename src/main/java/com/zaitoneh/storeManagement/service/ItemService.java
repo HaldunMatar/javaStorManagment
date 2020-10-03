@@ -18,7 +18,7 @@ void saveItem(Item employee);
 Item getItemById(long id); 
 
 
-void deleteEmployeeById(long id);
+void deleteItemById(long id);
 Page < Item > findPaginated(int pageNo, int pageSize);
 Page < Item > findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
 

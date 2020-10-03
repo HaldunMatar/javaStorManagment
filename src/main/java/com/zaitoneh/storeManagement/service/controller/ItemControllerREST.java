@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,10 +54,41 @@ public class ItemControllerREST {
       e.printStackTrace();
   }
     	 
+    }	 
+   /* //http://localhost:8080/ItemId?ItemId=56
+    @GetMapping("/ItemId")
+    public  Item getItemById(@RequestParam  Long ItemId)  {
+    
+    
+    
+    @DeleteMapping(value = "/posts/{id}")
+public ResponseEntity<Long> deletePost(@PathVariable Long id) {
+
+
+
+
+@DeleteMapping("/employees/{id}")
+public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)
+    	
+    */
+    
+    
+   @DeleteMapping("/deleteItem")
+   public     boolean   deleteItemNet(@RequestParam  Long itemId)   {
+
+    try {
     	 
+    	    	
+    	itemService.deleteItemById(itemId);
+    	return true;
+    	
+     }
+   catch (Exception e) { 
+     e.printStackTrace();
+ 	return false;
+        
+   }    
     
-    
-   
     }
     
 

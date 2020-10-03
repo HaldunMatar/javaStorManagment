@@ -40,16 +40,14 @@ public class ItemServiceImpl implements ItemService {
 	    if (optional.isPresent()) {
 	        item = optional.get();
 	    } else {
+	    	
 	        throw new RuntimeException(" Item not found for id :: " + id);
 	    }
 	    return item;
 	}
 
-
-	
-
 	@Override
-	public void deleteEmployeeById(long id) {
+	public void deleteItemById(long id) {
 		this.itemRepository.deleteById(id);
 		
 	}

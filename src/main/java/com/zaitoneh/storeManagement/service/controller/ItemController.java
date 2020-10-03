@@ -89,7 +89,7 @@ public class ItemController {
      public String deleteItem(@PathVariable (value = "id") long id) {
       
       // call delete item method 
-     	this.itemService.deleteEmployeeById(id);
+     	this.itemService.deleteItemById(id);
     
       return "redirect:/listItems";
      }
