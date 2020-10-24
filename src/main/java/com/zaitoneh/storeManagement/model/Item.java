@@ -6,11 +6,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "item_table")
+
+
+@Table(
+	    name="item_table", 
+	    uniqueConstraints=
+	        @UniqueConstraint(columnNames={"item_name", "item_type_level1"})
+	)
 
 public class Item {
 

@@ -15,6 +15,9 @@
        
 
         <form action="#" th:action="@{/saveStore}" th:object="${store}" method="POST">
+        
+        <input type="text" th:field="*{storeName}" placeholder="storeName" class="form-control mb-4 col-4">
+        
             <input type="text" th:field="*{storeCode}" placeholder="storeCode" class="form-control mb-4 col-4">
 
             <input type="text" th:field="*{storeAddress}" placeholder="storeAddress" class="form-control mb-4 col-4">

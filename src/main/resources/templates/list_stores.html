@@ -23,6 +23,8 @@
   <table border="1" class = "table table-striped table-responsive-md">
    <thead>
     <tr>
+    <th><a th:href="@{'/page1/' + ${currentPage} + '?sortField=storeCode&sortDir=' + ${reverseSortDir}}">
+       storeName</a></th>
      <th><a th:href="@{'/page1/' + ${currentPage} + '?sortField=storeCode&sortDir=' + ${reverseSortDir}}">
        storeCode</a></th>
      <th><a th:href="@{'/page1/' + ${currentPage} + '?sortField=storeAddress&sortDir=' + ${reverseSortDir}}">
@@ -32,6 +34,7 @@
    </thead>
    <tbody>
     <tr th:each="store : ${listStores}">
+     <td th:text="${store.storeName}"></td>
      <td th:text="${store.storeCode}"></td>
      <td th:text="${store.storeAddress}"></td>
      
