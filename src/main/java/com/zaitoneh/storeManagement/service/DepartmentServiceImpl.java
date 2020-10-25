@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.zaitoneh.storeManagement.model.Department;
 import com.zaitoneh.storeManagement.repository.DepartmentRepository;
+import com.zaitoneh.storeManagement.repository.SupplierRepository;
 
 
 @Service
@@ -21,10 +22,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Autowired
     private DepartmentRepository departmentRepository;
+    private SupplierRepository suppRepository;
 
     @Override
     public List <Department> getAllDepartments() {
+    	suppRepository.deleteAll();
         return departmentRepository.findAll();
+        
     }
     
     
