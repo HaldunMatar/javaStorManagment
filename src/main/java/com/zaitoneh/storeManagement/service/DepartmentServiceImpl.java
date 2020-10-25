@@ -26,7 +26,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List <Department> getAllDepartments() {
-    	suppRepository.deleteAll();
+    	
         return departmentRepository.findAll();
         
     }
