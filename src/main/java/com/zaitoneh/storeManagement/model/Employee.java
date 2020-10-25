@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "employees")
+@Table(name = "employee_table")
 public class Employee {
 
     @Id
