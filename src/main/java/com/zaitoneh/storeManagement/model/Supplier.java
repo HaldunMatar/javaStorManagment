@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "suppliers_table")
+@Table(name = "supplier_table")
 public class Supplier{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
