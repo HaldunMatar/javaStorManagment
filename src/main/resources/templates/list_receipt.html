@@ -28,8 +28,10 @@
      <td th:text="${receipt.receiptId}"></td>
        <td th:text="${receipt.receipNote}"></td>
      <td> <a th:href="@{/showFormForUpdateReceipt/{id}(id=${receipt.receiptId})}" class="btn btn-primary">Update</a>
-                      
+         <a th:href="@{/deleteReceipt/{id}(id=${receipt.receiptId})}" class="btn btn-danger">Delete</a>
                     </td>
+                      
+                   
    
      
   

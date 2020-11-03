@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name ="receipt_table")
 public class Receipt {
@@ -28,9 +31,15 @@ public class Receipt {
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "receipt")
     private List<ReceiptDetail> receiptDetailList;
+    public Receipt() {
+		super();
+	}
     
-    
-    public List<ReceiptDetail> getReceiptDetail() {
+    public Receipt(long id) {
+		this.receiptId=id;
+	}
+
+	public List<ReceiptDetail> getReceiptDetail() {
         return receiptDetailList;
     }
 
@@ -38,15 +47,50 @@ public class Receipt {
         this.receiptDetailList =receiptDetail;
     }
     
+  
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+     @Column(name="receipt_city") 
+      private  String  receiptCity;
     
-	
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name="receipt_dep_id") 
+   	private  Integer   receiptDepId;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name="receipt_date") 
 	private Date receiptDate;
-    
+    @JsonProperty(defaultValue = "0")
     @Column(name="receipt_type") 
 	private  short receiptType;
     
-    @Column(name="receipt_sup_id") 
+    public List<ReceiptDetail> getReceiptDetailList() {
+		return receiptDetailList;
+	}
+
+	public void setReceiptDetailList(List<ReceiptDetail> receiptDetailList) {
+		this.receiptDetailList = receiptDetailList;
+	}
+
+	public String getReceiptCity() {
+		return receiptCity;
+	}
+
+	public void setReceiptCity(String receiptCity) {
+		this.receiptCity = receiptCity;
+	}
+
+	public Integer getReceiptDepId() {
+		return receiptDepId;
+	}
+
+	public void setReceiptDepId(Integer receiptDepId) {
+		this.receiptDepId = receiptDepId;
+	}
+
+
+
+
+	@Column(name="receipt_sup_id") 
    	private  long receiptSupId;
     
     @Column(name="receipt_note") 

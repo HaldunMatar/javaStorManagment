@@ -19,6 +19,21 @@ public class ReceiptDetail {
 @JoinColumn(name = "receipt_id")
  private Receipt receipt;
 
+@Column(name="item_id")
+private 	long itemId ;
+
+@Id
+@Column(name="amount")
+private 	double amount ;
+
+
+@Column(name="item_price")
+private 	float  price ;
+
+
+
+
+
 public Receipt getReceipt() {
     return receipt;
 }
@@ -57,17 +72,6 @@ public void setPrice(float price) {
 
 
 
-@Column(name="item_id")
-   private 	long itemId ;
-  
-  @Id
-  @Column(name="amount")
-  private 	double amount ;
-  
- 
-  @Column(name="item_price")
-  private 	float  price ;
-  
 
 
 

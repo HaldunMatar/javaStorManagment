@@ -1,5 +1,7 @@
 package com.zaitoneh.storeManagement.service.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.zaitoneh.storeManagement.model.Item;
 import com.zaitoneh.storeManagement.model.Receipt;
+import com.zaitoneh.storeManagement.model.ReceiptDetail;
+import com.zaitoneh.storeManagement.repository.ReceiptDetailRepository;
 import com.zaitoneh.storeManagement.service.EmployeeService;
 import com.zaitoneh.storeManagement.service.ReceiptDetailService;
 import com.zaitoneh.storeManagement.service.ReceiptService;
 import com.zaitoneh.storeManagement.service.ReceiptServiceImp;
+
+import antlr.collections.List;
 
 
 @Controller
@@ -22,6 +28,9 @@ public class ReceiptDetailController {
 	
 	@Autowired
 	private  ReceiptService  receiptService ;
+	
+	@Autowired
+	private  ReceiptDetailService  receiptDetailService ;
 	//private  ReceiptDetailService  receiptDetailService;
 	
     // display list of stores
@@ -78,12 +87,24 @@ public class ReceiptDetailController {
 	@PostMapping("/saveReceipt")
 	public String saveReceipt(@ModelAttribute("receipt") Receipt receipt) {
 		
+		
+		
 		receiptService.saveReceipt(receipt);
 		
 		return "redirect:/listReceipts";
 	}
 	
 
-	
+    @GetMapping("/deleteReceipt/{id}")
+    public String deleteStore(@PathVariable (value = "id") long id) {
+    	
+    	
+    java.util.List<ReceiptDetail> l =	 receiptDetailService.getReceiptDetailByReceipId(new Receipt(id));
+    	
+    	receiptDetailService.deleteReceiptDetailAll( l);
+    	this.receiptService.deleteReceiptById(id);
+   
+     return "redirect:/listStores";
+    }
 
 }
