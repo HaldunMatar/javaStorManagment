@@ -7,6 +7,7 @@ package com.zaitoneh.storeManagement.service;
 
 
 
+import com.zaitoneh.storeManagement.model.Department;
 import com.zaitoneh.storeManagement.model.Receipt;
 import com.zaitoneh.storeManagement.model.ReceiptDetail;
 import com.zaitoneh.storeManagement.repository.ReceiptDetailRepository;
@@ -70,6 +71,17 @@ public class   ReceiptDetailServiceImp implements ReceiptDetailService{
 	public List<ReceiptDetail> getReceiptDetailByReceipId(Receipt receipId) {
 		// TODO Auto-generated method stub
 		return 	 this.receiptDetailRepository.getReceiptDetailByReceipId(receipId);
+	}
+
+	@Override
+	public List<ReceiptDetail> getAllReceiptDetails() {
+		
+	   
+	    	
+	        return receiptDetailRepository.findAll();
+	        
+	   
+	    
 	}
 
 	

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -26,6 +26,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(defaultValue = "0")
     private long itemId;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(defaultValue = "0")
     @Column(name = "item_name")
     private String itemMain;
@@ -70,12 +71,15 @@ public class Item {
 		this.itemLevel3 = itemLevel3;
 	}
 	 @JsonProperty(defaultValue = "0")
+	  @JsonInclude(JsonInclude.Include.NON_NULL)
 	@Column(name = "item_type_level1")
     private String itemLevel1;
 	 @JsonProperty(defaultValue = "0")
+	  @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "item_type_level2")
     private String itemLevel2;
 	 @JsonProperty(defaultValue = "0")
+	  @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "item_type_level3")
     private String itemLevel3;
     

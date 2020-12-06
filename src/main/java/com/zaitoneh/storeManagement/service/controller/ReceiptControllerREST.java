@@ -38,7 +38,7 @@ public class ReceiptControllerREST {
     }
     
     //http://localhost:8080/ItemId?ItemId=56
-    @GetMapping("/ReceiptId")
+    @GetMapping("/receiptId")
     public  Receipt getReceiptById(@RequestParam  Long receiptId)  {
 
     	return receiptService.getReceiptById(receiptId);    
@@ -56,7 +56,9 @@ public class ReceiptControllerREST {
       e.printStackTrace();
   }
     	 
-    }	 
+    
+    }	
+    
    /* //http://localhost:8080/ItemId?ItemId=56
     @GetMapping("/ItemId")
     public  Item getItemById(@RequestParam  Long ItemId)  {

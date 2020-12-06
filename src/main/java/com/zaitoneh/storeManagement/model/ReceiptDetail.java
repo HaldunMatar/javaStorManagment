@@ -1,28 +1,40 @@
 package com.zaitoneh.storeManagement.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-@Entity
+
+class ProjectId implements    Serializable {
+	long  receiptId;
+	long itemId ;
+}
+@Entity  @IdClass(ProjectId.class)
 @Table(name="Receipt_Detail")
 
 
 public class ReceiptDetail {
 
 @ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "receipt_id")
+//@JoinColumn(name = "receipt_id")
  private Receipt receipt;
 
+@Id
+@JoinColumn(name = "receipt_id")
+private long  receiptId;
+@Id
 @Column(name="item_id")
 private 	long itemId ;
 
-@Id
+
 @Column(name="amount")
 private 	double amount ;
 
@@ -40,6 +52,16 @@ public Receipt getReceipt() {
 
 public void setReceipt(Receipt receipt) {
     this.receipt = receipt;
+}
+
+
+
+public long  getReceiptId() {
+    return receiptId;
+}
+
+public void setReceiptId(long receipt) {
+    this.receiptId = receipt;
 }
 
 

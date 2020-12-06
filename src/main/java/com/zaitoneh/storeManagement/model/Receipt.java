@@ -56,9 +56,11 @@ public class Receipt {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name="receipt_dep_id") 
    	private  Integer   receiptDepId;
+    
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name="receipt_date") 
-	private Date receiptDate;
+	private Long receiptDate;
+    
     @JsonProperty(defaultValue = "0")
     @Column(name="receipt_type") 
 	private  short receiptType;
@@ -94,7 +96,7 @@ public class Receipt {
    	private  long receiptSupId;
     
     @Column(name="receipt_note") 
-   	private  String receipNote;
+   	private  String receiptNote;
     
     
     @Column(name="receipt_emp_id") 
@@ -111,12 +113,12 @@ public class Receipt {
 	}
 
 
-	public Date getReceiptDate() {
+	public Long getReceiptDate() {
 		return receiptDate;
 	}
 
 
-	public void setReceiptDate(Date receiptDate) {
+	public void setReceiptDate(Long receiptDate) {
 		this.receiptDate = receiptDate;
 	}
 
@@ -141,13 +143,13 @@ public class Receipt {
 	}
 
 
-	public String getReceipNote() {
-		return receipNote;
+	public String getReceiptNote() {
+		return receiptNote;
 	}
 
 
-	public void setReceipNote(String receipNote) {
-		this.receipNote = receipNote;
+	public void setReceiptNote(String receipNote) {
+		this.receiptNote = receipNote;
 	}
 
 
@@ -161,18 +163,18 @@ public class Receipt {
 	}
 
 
-	public long getReceiptStoteId() {
-		return receiptStoteId;
+	public long getReceiptStoreId() {
+		return receiptStoreId;
 	}
 
 
-	public void setReceiptStoteId(long receiptStoteId) {
-		this.receiptStoteId = receiptStoteId;
+	public void setReceiptStoreId(long receiptStoteId) {
+		this.receiptStoreId = receiptStoteId;
 	}
 
 
 	@Column(name="receipt_store_id") 
-   	private  long receiptStoteId;
+   	private  long receiptStoreId;
   
     
 	

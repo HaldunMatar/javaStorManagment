@@ -40,8 +40,12 @@ public class EmployeeControllerREST {
     //http://localhost:8080/ItemId?ItemId=56
     @GetMapping("/EmployeeId")
     public  Employee getEmployeeById(@RequestParam  Long employeeId)  {
+    	
+    	
 
-    	return employeeService.getEmployeeById(employeeId);    
+    	return employeeService.getEmployeeById(employeeId);   
+    	
+    	
        
        }
     
