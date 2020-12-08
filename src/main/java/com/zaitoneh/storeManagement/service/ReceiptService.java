@@ -17,8 +17,8 @@ public interface  ReceiptService {
 
 	 void deleteReceiptById(long id);
 	 
-
-	
+	 void deleteAllreceipt();
+	 
 
 
 

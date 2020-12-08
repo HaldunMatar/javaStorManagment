@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zaitoneh.storeManagement.model.Receipt;
+import com.zaitoneh.storeManagement.model.ReceiptDetail;
+import com.zaitoneh.storeManagement.service.ReceiptDetailService;
 import com.zaitoneh.storeManagement.service.ReceiptService;
 
 
@@ -96,10 +98,29 @@ public Map<String, Boolean> deleteReceipt(@PathVariable(value = "id") Long recei
     
     }
     
+	@Autowired
+	private  ReceiptDetailService  receiptDetailService ;
 
+   // display list of listReceiptDetailREST
+   @GetMapping("/listReceiptDetailREST")
+   public  List<ReceiptDetail>  getAllReceiptDetailsREST(Model model)  {
+	 
+  	 return receiptDetailService.getAllReceiptDetails() ;
+     
+   }   
 
-    
-
-    
+   @PostMapping("/newReceiptDetailtest")
+   
+   public void    saveReceiptDetail(@RequestBody ReceiptDetail receiptDetail) {
+   	 try {
+   	  // save item to database
+   		 receiptDetailService.saveReceiptDetail(receiptDetail);
+    }
+  catch (Exception e) { 
+     e.printStackTrace();
+ }
+   	 
+   
+   }
    
 }

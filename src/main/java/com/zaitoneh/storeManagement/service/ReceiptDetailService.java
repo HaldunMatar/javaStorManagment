@@ -30,6 +30,9 @@ public interface  ReceiptDetailService {
 	
 	List<ReceiptDetail> getReceiptDetailByReceipId(@Param("receipId") Receipt receipId);
 	
+	 void deleteAllreceiptDetails();
 
+	
+	
 
 }

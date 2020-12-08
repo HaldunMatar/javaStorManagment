@@ -84,6 +84,12 @@ public class   ReceiptDetailServiceImp implements ReceiptDetailService{
 	    
 	}
 
+	@Override
+	public void deleteAllreceiptDetails() {
+	
+		receiptDetailRepository.deleteAll();
+	}
+
 	
 	
 

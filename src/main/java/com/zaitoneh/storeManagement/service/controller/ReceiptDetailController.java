@@ -24,7 +24,7 @@ import com.zaitoneh.storeManagement.service.ReceiptServiceImp;
 
 
 
-@RestController
+@Controller
 
 public class ReceiptDetailController {
 	
@@ -41,7 +41,7 @@ public class ReceiptDetailController {
     public String listStores(Model model) {
  	   //return findPaginatedStore(1, model);
    	 ///return findPaginated(1, "storeCode", "asc", model);
-    model.addAttribute("listReceipts", receiptService.getAllReceipts());
+model.addAttribute("listReceipts", receiptService.getAllReceipts());
       
      
      return "list_receipt";
@@ -101,13 +101,7 @@ public class ReceiptDetailController {
     
     }
     
-    // display list of listReceiptDetailREST
-    @GetMapping("/listReceiptDetailREST")
-    public  List<ReceiptDetail>  listReceipt(Model model)  {
- 	 
-   	 return receiptDetailService.getAllReceiptDetails() ;
-      
-    } 
+  
     
     
     
@@ -120,6 +114,20 @@ public class ReceiptDetailController {
 		
 		return "redirect:/listReceipts";
 	}
+	
+	
+	
+    @GetMapping("/DeleteAllreceipt")
+    public String deleteAllreceipt() {
+    	
+    	receiptDetailService.deleteAllreceiptDetails(); 
+    	
+    	receiptService.deleteAllreceipt(); 
+   
+   
+     return "redirect:/listStores";
+    }
+	
 	
 
     @GetMapping("/deleteReceipt/{id}")

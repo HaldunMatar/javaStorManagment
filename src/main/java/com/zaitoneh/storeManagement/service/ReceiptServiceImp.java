@@ -59,6 +59,13 @@ public List<Receipt> getAllReceipts() {
 }
 
 
+@Override
+public void deleteAllreceipt() {
+	 receiptRepository.deleteAll();
+	
+}
+
+
 
 
 
