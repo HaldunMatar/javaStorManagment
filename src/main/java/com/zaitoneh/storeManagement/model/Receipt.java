@@ -26,6 +26,9 @@ public class Receipt {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="receipt_id") 
 	private long receiptId;
+    
+    
+
   
   
     
@@ -51,20 +54,43 @@ public class Receipt {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
      @Column(name="receipt_city") 
-      private  String  receiptCity;
+      private  String  receiptCity="0";
     
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name="receipt_dep_id") 
-   	private  Integer   receiptDepId;
+   	private  Integer   receiptDepId=0;
     
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name="receipt_date") 
-	private Long receiptDate;
+	private Long receiptDate=0L;
     
     @JsonProperty(defaultValue = "0")
     @Column(name="receipt_type") 
-	private  short receiptType;
+	private  short receiptType=0;
     
+
+	@Column(name="receipt_store_id") 
+   	private  long receiptStoreId=0L;
+  
+	@Column(name="receipt_sup_id") 
+   	private  long receiptSupId=0L;
+    
+    @Column(name="receipt_note") 
+   	private  String receiptNote="0";
+    
+    
+    @Column(name="receipt_emp_id") 
+   	private  long receiptEmpId=0L;
+    
+    
+    public long getReceiptId() {
+		return receiptId;
+	}
+
+
+    
+    
+	
     public List<ReceiptDetail> getReceiptDetailList() {
 		return receiptDetailList;
 	}
@@ -91,21 +117,6 @@ public class Receipt {
 
 
 
-
-	@Column(name="receipt_sup_id") 
-   	private  long receiptSupId;
-    
-    @Column(name="receipt_note") 
-   	private  String receiptNote;
-    
-    
-    @Column(name="receipt_emp_id") 
-   	private  long receiptEmpId;
-    
-    
-    public long getReceiptId() {
-		return receiptId;
-	}
 
 
 	public void setReceiptId(long receiptId) {
@@ -172,11 +183,7 @@ public class Receipt {
 		this.receiptStoreId = receiptStoteId;
 	}
 
-
-	@Column(name="receipt_store_id") 
-   	private  long receiptStoreId;
-  
-    
+ 
 	
 	
 
