@@ -49,15 +49,15 @@ public class ReceiptControllerREST {
     
     @PostMapping("/newReceipt")
     
-    public void    saveReceipt(@RequestBody Receipt receipt) {
+    public int    saveReceipt(@RequestBody Receipt receipt) {
     	 try {
     	  // save item to database
-       receiptService.saveReceipt(receipt);
+      return   receiptService.saveReceipt(receipt); 
      }
    catch (Exception e) { 
       e.printStackTrace();
   }
-    	 
+    	 return   0;	 
     
     }	
     
@@ -103,13 +103,13 @@ public Map<String, Boolean> deleteReceipt(@PathVariable(value = "id") Long recei
 
    // display list of listReceiptDetailREST
    @GetMapping("/listReceiptDetailREST")
-   public  List<ReceiptDetail>  getAllReceiptDetailsREST(Model model)  {
+   public  List<ReceiptDetail>  getReceiptDetailsByReceipId(  Long receiptId)  {
 	 
-  	 return receiptDetailService.getAllReceiptDetails() ;
+  	 return receiptDetailService.getReceiptDetailsByReceipId(receiptId);
      
    }   
 
-   @PostMapping("/newReceiptDetailtest")
+   @PostMapping("/newReceiptDetail")
    
    public void    saveReceiptDetail(@RequestBody ReceiptDetail receiptDetail) {
    	 try {

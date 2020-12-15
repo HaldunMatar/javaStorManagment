@@ -87,9 +87,9 @@ model.addAttribute("listReceipts", receiptService.getAllReceipts());
 	 * 
 	 * 
 	 */
-    @PostMapping("/newReceiptDetail")
+    @PostMapping("/newReceiptDetailtest")
     
-    public void    saveReceiptDetail(@RequestBody ReceiptDetail receiptDetail) {
+    public void    saveReceiptDetailtest(@RequestBody ReceiptDetail receiptDetail) {
     	 try {
     	  // save item to database
     		 receiptDetailService.saveReceiptDetail(receiptDetail);

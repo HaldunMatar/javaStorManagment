@@ -28,6 +28,8 @@ public interface  ReceiptDetailService {
 
 	List<ReceiptDetail> getAllReceiptDetails();
 	
+	List<ReceiptDetail> 	getReceiptDetailsByReceipId(@Param("receiptId") Long receiptId);
+	
 	List<ReceiptDetail> getReceiptDetailByReceipId(@Param("receipId") Receipt receipId);
 	
 	 void deleteAllreceiptDetails();

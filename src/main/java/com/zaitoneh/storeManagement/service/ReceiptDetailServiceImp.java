@@ -73,24 +73,26 @@ public class   ReceiptDetailServiceImp implements ReceiptDetailService{
 		return 	 this.receiptDetailRepository.getReceiptDetailByReceipId(receipId);
 	}
 
-	@Override
-	public List<ReceiptDetail> getAllReceiptDetails() {
-		
-	   
-	    	
-	        return receiptDetailRepository.findAll();
-	        
-	   
-	    
-	}
-
+	
 	@Override
 	public void deleteAllreceiptDetails() {
 	
 		receiptDetailRepository.deleteAll();
 	}
 
+	@Override
+	public List<ReceiptDetail> getAllReceiptDetails() {
+		return receiptDetailRepository.findAll();
+	}
+
 	
+
+	@Override
+	public List<ReceiptDetail> getReceiptDetailsByReceipId(Long receiptId) {
+		// TODO Auto-generated method stub;
+		return receiptDetailRepository.getReceiptDetailsByReceipId(receiptId);
+	}
+
 	
 
 

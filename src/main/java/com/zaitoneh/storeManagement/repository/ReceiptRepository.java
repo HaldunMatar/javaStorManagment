@@ -14,10 +14,20 @@ import com.zaitoneh.storeManagement.model.ReceiptDetail;
 public interface  ReceiptRepository  extends JpaRepository<Receipt,Long>
    {
 
-	@Query(value = "SELECT receipt1  FROM  ReceiptDetail  receipt1  where  receipt1.receipt  = ?1 ")
+	/*@Query(value = "SELECT receipt1  FROM  ReceiptDetail  receipt1  where  receipt1.receipt  = ?1 ")
 	
 
 	//@Query(value = "SELECT *  FROM  receipt_detail  where  receipt_id  = :receipId ", nativeQuery = true)
-	List<ReceiptDetail> getReceiptDetailByReceipId(@Param("receipId") Receipt receipId);
+	List<ReceiptDetail> getReceiptDetailByReceipId(@Param("receipId") Receipt receipId);*/
+	
+
+//	@Query(value = " SELECT currval('receipt_table_receipt_id_seq') ")
+	
+	@Query(value = "SELECT    MAX (receiptId)  From   Receipt")
+	
+	
+
+	
+	int  getCurrentId();
 	
    }

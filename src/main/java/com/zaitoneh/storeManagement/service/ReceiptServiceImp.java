@@ -24,9 +24,13 @@ public class   ReceiptServiceImp implements ReceiptService{
  
 
  @Override
-public void saveReceipt (Receipt receipt) {
+public int saveReceipt (Receipt receipt) {
 	 
 	 this.receiptRepository.save(receipt);
+	 
+	 this.receiptRepository.flush();
+	 return   this.receiptRepository.getCurrentId();
+	 
    }
 
 	

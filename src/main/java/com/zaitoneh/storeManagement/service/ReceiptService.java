@@ -8,7 +8,7 @@ import com.zaitoneh.storeManagement.model.Receipt;
 public interface  ReceiptService {
 	 List<Receipt> getAllReceipts();
 	
-    void saveReceipt (Receipt receipt) ;
+    int  saveReceipt (Receipt receipt) ;
 
 	
 	  

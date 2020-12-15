@@ -28,8 +28,9 @@ public class ReceiptDetail {
  private Receipt receipt;
 
 @Id
-@JoinColumn(name = "receipt_id")
+@Column(name = "receipt_id")
 private long  receiptId;
+
 @Id
 @Column(name="item_id")
 private 	long itemId ;
@@ -40,11 +41,19 @@ private 	double amount ;
 
 
 @Column(name="item_price")
-private 	float  price ;
+private 	float  itemPrice ;
 
 
 
 
+
+public float getItemPrice() {
+	return itemPrice;
+}
+
+public void setItemPrice(float itemPrice) {
+	this.itemPrice = itemPrice;
+}
 
 public Receipt getReceipt() {
     return receipt;
@@ -83,13 +92,8 @@ public void setAmount(double amount) {
 	this.amount = amount;
 }
 
-public float getPrice() {
-	return price;
-}
 
-public void setPrice(float price) {
-	this.price = price;
-}
+
 
 
 
