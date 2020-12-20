@@ -32,6 +32,7 @@ public class   ReceiptDetailServiceImp implements ReceiptDetailService{
 	 
 	@Override
 	public void saveReceiptDetail(ReceiptDetail receiptDetail) {
+		
 		 this.receiptDetailRepository.save(receiptDetail);
 		
 	}
@@ -90,6 +91,9 @@ public class   ReceiptDetailServiceImp implements ReceiptDetailService{
 	@Override
 	public List<ReceiptDetail> getReceiptDetailsByReceipId(Long receiptId) {
 		// TODO Auto-generated method stub;
+		
+		Long[] ids = {new Long(1),new Long(1),new Long(1),new Long(1)};
+		//receiptDetailRepository.findAllById(ids);
 		return receiptDetailRepository.getReceiptDetailsByReceipId(receiptId);
 	}
 
