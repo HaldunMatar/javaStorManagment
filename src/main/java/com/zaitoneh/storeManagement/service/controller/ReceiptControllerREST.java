@@ -111,14 +111,17 @@ public Map<String, Boolean> deleteReceipt(@PathVariable(value = "id") Long recei
 
    @PostMapping("/newReceiptDetail")
    
-   public void    saveReceiptDetail(@RequestBody ReceiptDetail receiptDetail) {
+   public   List<ReceiptDetail>    saveReceiptDetail(@RequestBody ReceiptDetail receiptDetail) {
    	 try {
    	  // save item to database
    		 receiptDetailService.saveReceiptDetail(receiptDetail);
+
+   	  	 return receiptDetailService.getReceiptDetailsByReceipId(receiptDetail.getReceiptId());
     }
   catch (Exception e) { 
      e.printStackTrace();
  }
+	return null;
    	 
    
    }
